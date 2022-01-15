@@ -17,11 +17,6 @@ function init() {
 
 }
 
-
-// let angle_sec = 0;
-// let angle_min = 0;
-// let angle_hour = 0;
-
 function update(ctx) {
     
     let currentTime = new Date();
@@ -43,7 +38,7 @@ function update(ctx) {
     ctx.stroke();
 
     ctx.translate(200, 150);
-    ctx.rotate((6 / 3600) * secondsDegrees);
+    ctx.rotate((6 / 360) * secondsDegrees);
     ctx.translate(-200, -150);
 
     ctx.beginPath();
@@ -59,8 +54,10 @@ function update(ctx) {
     ctx.save();
 
     ctx.translate(200, 150);
-    ctx.rotate((1 / 36000) * minutesDegrees);
+    ctx.rotate((1 / 3600) * minutesDegrees);
     ctx.translate(-200, -150);
+
+    
 
     ctx.beginPath();
     ctx.moveTo(200, 150);
@@ -69,13 +66,15 @@ function update(ctx) {
     ctx.stroke();
 
     ctx.restore();
+    ctx.save();
+    
 
     minutesDegrees++;
 
     ctx.save();
 
     ctx.translate(200, 150);
-    ctx.rotate((0.16 / 360000) * hoursDegrees);
+    ctx.rotate((0.16 / 36000) * hoursDegrees);
     ctx.translate(-200, -150);
 
     ctx.beginPath();
@@ -85,6 +84,7 @@ function update(ctx) {
     ctx.stroke();
 
     ctx.restore();
+    ctx.save();
 
     hoursDegrees++;
 
